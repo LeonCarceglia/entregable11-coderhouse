@@ -3,9 +3,9 @@ import productsController from "../controllers/products.controller.js"
 
 export default class ProductsRouter extends CustomRouter {
     init() {
-        this.get("/:limit?/:page?/:query?/:sort?", ["PUBLIC"], productsController.getProducts)
-
         this.get("/:id", ["PUBLIC"], productsController.getProduct)
+
+        this.get("/:limit?/:page?/:query?/:sort?", ["PUBLIC"], productsController.getProducts)
 
         this.put("/:id", ["ADMIN"], productsController.updateProduct)
 
@@ -13,6 +13,6 @@ export default class ProductsRouter extends CustomRouter {
 
         this.delete("/:id", ["ADMIN"], productsController.deleteProduct)
         
-        this.post("/mockingproducts", ["ADMIN"], productsController.generateProductsMock)
+        this.post("/mockingproducts", ["PUBLIC"], productsController.generateProductsMock)
     }
 }

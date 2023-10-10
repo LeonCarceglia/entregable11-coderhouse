@@ -47,8 +47,9 @@ export default class ProductsManager {
         return result
     }
 
-    getProduct = (id) => {
-        return productModel.findById(id)
+    getProduct = async (id) => {
+        return await productModel.findById(id)
+   
     }
 
     createProduct = (product) => {

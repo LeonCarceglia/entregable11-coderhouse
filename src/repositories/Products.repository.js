@@ -14,9 +14,9 @@ class ProductsRepository{
         }
     }
 
-    getProduct(id){
+    async getProduct(id){
         try{
-            return new ProductDTO(this.dao.getProduct(id))
+            return new ProductDTO(await this.dao.getProduct(id))
         }
         catch(error){
             throw(error)
